@@ -30,16 +30,10 @@
             }
         }
 
-        public Kiturami(string Name, int Temperature, int Year)
-        {
-            this.Name = Name;
-            this.Temperature = Temperature;
-            this.Year = Year;
-        }
-
-        public Kiturami(string name, int temperature, int year)
-        {
-        }
+        public Kiturami(
+            int year,
+            string name,
+            int temperature)//???????????????????????????????
 
         //public void SetTemperature(int temp)
         //{
@@ -80,7 +74,7 @@
         static void Main(string[] args)
         {
             Console.WriteLine("보일러 시작!");
-            Kiturami boiler = new();
+            Kiturami boiler = new Kiturami();
             //boiler.temperature = 400; // 막아버림 public은 사용하면 안됨
             //Console.WriteLine($"보일러의 온도는 {boiler.temperature}도"); // 막아버림
             //boiler.SetTemperature(400);
@@ -94,7 +88,7 @@
 
             Kiturami kiturami = new Kiturami(name: "라미", temperature: 25, year: 2023);
             Console.WriteLine(kiturami.Name);
-            Console.WriteLine($"제작년도: {kiturami.Year}");
+            Console.WriteLine($"제작년도: {kiturami.year}");
             kiturami.Temperature = 180;
             Console.WriteLine($"{kiturami.Name} 현재온도는 {kiturami.Temperature}도");
         }
