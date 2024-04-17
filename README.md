@@ -309,7 +309,7 @@
         - 백그라운드 처리는 Thread, BackgroundWorker와 유사
         - async, await 키워드
 
-        ![비동기앱](https://github.com/MsgIsJmt/basic-csharp-2024/blob/main/images/cs004.png)
+![비동기앱](https://github.com/MsgIsJmt/basic-csharp-2024/blob/main/images/cs004.png)        
 
 ## 6일차
 - 예제 프로젝트
