@@ -67,7 +67,7 @@ namespace ex19_asyncs
                 using (FileStream toStream = new FileStream(destPath, FileMode.Create))
                 {   // 존재하지 않는 파일을 만드니까 FileMode.Create
                     // 1MByte 버퍼를 생성
-                    byte[] buffer = new byte[10]; // 1024(byte) = 1Kbyte, 1024 * 1024 = 1Mbyte
+                    byte[] buffer = new byte[1024 * 1024]; // 1024(byte) = 1Kbyte, 1024 * 1024 = 1Mbyte
                     // formStream에 들어온 파일을 1MB씩 잘라서 버퍼에 담은다음
                     // toStream에 1MB씩 붙여넣음
                     int nRead = 0;
