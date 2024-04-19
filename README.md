@@ -327,8 +327,12 @@
     - 윈도우 탐색기 앱 종료
         - 실행결과
 
-        
+        https://github.com/MsgIsJmt/basic-csharp-2024/assets/158007442/65d08d4b-0814-4752-96c6-721d4fff0a57
     
+
+
+
+
 
     - 도서관리 앱 with SQL Server(Base) ModernUI(NuGet패키지, )
 
