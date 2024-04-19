@@ -42,8 +42,8 @@ namespace MyExplorer
 
             try
             {
-                LsvFiles.Items.Clear(); // 다른 폴더에 있던 이전 파일 정보 삭제
-                                        // 현재폴더의 하위폴더 정보 디스플레이
+                LsvFile.Items.Clear(); // 다른 폴더에 있던 이전 파일 정보 삭제
+                                       // 현재폴더의 하위폴더 정보 디스플레이
                 string[] directories = Directory.GetDirectories(TxtPath.Text);
                 foreach (var directory in directories)
                 {
@@ -52,7 +52,7 @@ namespace MyExplorer
                     // 문자열 빈값 : "", string.Empty
                     ListViewItem item = new ListViewItem(new String[] { info.Name, info.LastWriteTime.ToString(), "파일폴더", string.Empty });
                     item.ImageIndex = 1; // 리스트뷰의 폴더 이미지 인덱스
-                    LsvFiles.Items.Add(item);
+                    LsvFile.Items.Add(item);
                 }
                 // 파일 리스트업
                 string[] files = Directory.GetFiles(TxtPath.Text);  // 현재 폴더내의 파일정보
@@ -61,7 +61,7 @@ namespace MyExplorer
                     FileInfo info = new FileInfo(file);
                     ListViewItem item = new ListViewItem(new string[] { info.Name, info.LastWriteTime.ToString(), info.Extension, info.Length.ToString() });
                     item.ImageIndex = GetImageIndex(info.Extension);    // 확장자의 종류에 따라 이미지번호가 변경
-                    LsvFiles.Items.Add(item);
+                    LsvFile.Items.Add(item);
                 }
             }
             catch (Exception ex)
@@ -120,13 +120,58 @@ namespace MyExplorer
                 }
             }
         }
-
-        // 리스트뷰 마우스클릭 이벤트핸들러
-        private void LsvFiles_MouseClick(object sender, MouseEventArgs e)
+        private void LsvFiles_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
-            {   // 컨텍스트메뉴는 오른쪽 버튼에서만 동작
-                CmsFiles.Show(LsvFiles, e.Location);    // 마우스 클릭한 위치에서 쇼
+            {
+                // 컨텍스트메뉴는 오른쪽 버튼에서만 동작
+                CmsFiles.Show(LsvFile, e.Location);    // 마우스 클릭한 위치에서 쇼
+            }
+        }
+
+        private void TstMenuLargeIcon_Click(object sender, EventArgs e)
+        {
+            LsvFile.View = View.LargeIcon;
+        }
+
+        private void TstMenuSmallIcon_Click(object sender, EventArgs e)
+        {
+            LsvFile.View = View.SmallIcon;
+        }
+
+        private void TstMenuList_Click(object sender, EventArgs e)
+        {
+            LsvFile.View = View.List;
+        }
+
+        private void TstMenuDetails_Click(object sender, EventArgs e)
+        {
+            LsvFile.View = View.Details;
+        }
+
+        private void TstMenuTile_Click(object sender, EventArgs e)
+        {
+            LsvFile.View = View.Tile;
+        }
+
+        // 리스트뷰 아이템 더블클릭 이벤트핸들러. 실행파일 실행
+        private void LsvFile_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                var extension = LsvFile.SelectedItems[0].Text.Split(".")[1];
+                if(extension == "exe")
+                {   // 실행파일이면
+                    // MessageBox.Show(LsvFile.SelectedItems[0].Text); // 디버깅용
+                    // 실행파일의 경로는 TxtPath
+                    var fullPath = TxtPath.Text + "\\" + LsvFile.SelectedItems[0].Text;
+                    MessageBox.Show(fullPath);
+                    Process.Start(fullPath);    // 외부프로그램 실행
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
