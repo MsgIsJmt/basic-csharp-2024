@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>books.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="books - 복사.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="books - 복사.ico" />
+    <Content Include="books.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ax.Fw.MetroFrameWork" Version="14.3.221" />
+    <PackageReference Include="MetroModernUI" Version="1.4.0" />
+  </ItemGroup>
+
+</Project>
