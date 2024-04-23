@@ -10,17 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="books - 복사.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="books - 복사.ico" />
     <Content Include="books.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ax.Fw.MetroFrameWork" Version="14.3.221" />
-    <PackageReference Include="MetroModernUI" Version="1.4.0" />
+    <PackageReference Include="Ax.Fw.MetroFramework" Version="14.3.221" />
   </ItemGroup>
 
 </Project>
