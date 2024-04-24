@@ -361,6 +361,13 @@
         - 이 프로그램은...
 
 
+        ![책대여프로그램](https://github.com/MsgIsJmt/basic-csharp-2024/blob/main/images/cs006.png) 
+
+## 나머지(WPF/미니프로젝트 시간 다시!!)
+- Pending
+    - IoT Dummy 앱 with SQL Server(IoT, DB)
+    - 국가교통정보센터 CCTV뷰 앱(OpenAPI, NuGet dll, Network, UI디자인, 비동기메서드)
+
 ## 개인 토이프로젝트
 - 심플 메모장앱
     - 기능....

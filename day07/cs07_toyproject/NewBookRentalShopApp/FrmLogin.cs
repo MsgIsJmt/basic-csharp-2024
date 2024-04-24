@@ -96,6 +96,7 @@ namespace NewBookRentalShopApp
                 {
                     chkUserId = reader["userId"] != null ? reader["userId"].ToString() : "-"; // 유저아이디가 null일 때 '-' 로 변경
                     chkPassword = reader["password"] != null ? reader["password"].ToString() : "-"; // 패스워드가 null일 때 '-' 로 변경
+                    Helper.Common.LoginId = chkUserId;  // 로그인 아이디
 
                     return true;
                 }
@@ -106,7 +107,7 @@ namespace NewBookRentalShopApp
                     return false;
                 }
 
-            } // using을 사용하면 conn.Close()가 필요없음! ★★★
+            } // using을 사용하면 conn.Close()가 필요없음!
         }
 
         private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
